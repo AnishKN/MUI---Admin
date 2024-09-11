@@ -45,18 +45,19 @@ export default function LoginCard() {
     //on submit handling using hook
     const onSubmit = async (data) => {
         try {
-            await axios.post(`${import.meta.env.VITE_BACKEND_URL}auth`, data)
-                .then((response) => {
-                    let message = response?.data?.message || "Success!!"
-                    toast.success(message)
-                    localStorage.setItem('admin', JSON.stringify(response.data.user))
+            // await axios.post(`${import.meta.env.VITE_BACKEND_URL}auth`, data)
+            //     .then((response) => {
+            //         let message = response?.data?.message || "Success!!"
+            //         toast.success(message)
+                    // localStorage.setItem('admin', JSON.stringify(response.data.user))
+                    localStorage.setItem('admin', JSON.stringify(data))
                     navigate('/admin')
-                })
-                .catch((error) => {
-                    console.log(error);
-                    let message = error.response?.data?.message || "something went wrong!"
-                    toast.error(message)
-                })
+                // })
+                // .catch((error) => {
+                //     console.log(error);
+                //     let message = error.response?.data?.message || "something went wrong!"
+                //     toast.error(message)
+                // })
         }
         catch (error) {
             setError("root", {
